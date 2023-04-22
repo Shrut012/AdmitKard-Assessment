@@ -1,6 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { UserAuth } from "../context/AuthContext";
 import Carousel from "react-bootstrap/Carousel";
 import i1 from "../images/i1.jpg";
 import i2 from "../images/i2.jpg";
@@ -9,17 +7,8 @@ import i3 from "../images/i3.jpg";
 import "./styles.css";
 
 const HomePage = () => {
-	const { user } = UserAuth();
-	const navigate = useNavigate();
-	const navigateCall = () => {
-		if (user) {
-			navigate("/profile");
-		} else {
-			navigate("/signin");
-		}
-	};
 	return (
-		<div style={{ background: "#eee" }}>
+		<div style={{ minHeight: "100%" }}>
 			<div className="div_1">
 				<h1>Welcome to AdmitKard!</h1>
 				<h5>Apply to universities globally in easy steps.</h5>
@@ -72,16 +61,6 @@ const HomePage = () => {
 						your journey
 					</h7>
 				</div>
-			</div>
-
-			<div className="start_btndiv">
-				<button
-					type="button"
-					className="btn-primary btn-lg btn start_btn"
-					onClick={navigateCall}
-				>
-					Lets Get Started
-				</button>
 			</div>
 		</div>
 	);

@@ -222,11 +222,10 @@ button:hover{
 }
 .start_btn{
   width: 200px;
-  height: 3rem;
+  height: 2.5rem;
   display: flex;
   justify-content: center;
 }
-
 
 
 @media (max-width: 376px){
@@ -240,17 +239,27 @@ button:hover{
     width: 100%;
   }
   .start_btndiv{
-    height: 80vh;
+    /* display: flex;
+    justify-content: center; */
+    font-size: 0.1rem;
   }
   .start_btn{
-    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 9rem;
   }
   .navbar{
-    height: 4vh;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .navbar > img{
-      width: 140px;
+  .navbarImg{
+    width: 6rem;
   }
+
   
   .div_2{
     width: auto;
