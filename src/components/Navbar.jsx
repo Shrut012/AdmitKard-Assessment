@@ -22,7 +22,7 @@ const Navbar = () => {
 
 	return (
 		<div style={{ padding: "5px" }}>
-			<nav className="navbar navbar-light bg-light">
+			<nav className="navbar navbar-light ">
 				<img
 					src="https://assets.admitkard.com/images/admitkard_logo.svg"
 					className="d-inline-block align-top navbarImg"
