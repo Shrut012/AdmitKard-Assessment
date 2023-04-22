@@ -74,22 +74,8 @@ const Profile = () => {
 		maritalStatus: "",
 	});
 
-	// useEffect(() => {
-	// 	async function loadData() {
-	// 		const documentRef = doc(db, `users/${user.displayName}/data/${docId}`);
-	// 		const documentSnapshot = await getDoc(documentRef);
-	// 		if (documentSnapshot.exists()) {
-	// 			const currentData = documentSnapshot.data();
-	// 			const tempData = { ...currentData, ...userData };
-	// 			// console.log("tempdata", tempData);
-	// 			console.log("userdata ", userData);
-	// 			setUserData(tempData);
-	// 		}
-	// 	}
-	// 	loadData();
-	// }, []);
-
 	const handleChange = (event) => {
+		//handling form data changes
 		const { name, value } = event.target;
 		setFormData((prevFormData) => ({
 			...prevFormData,
@@ -112,23 +98,25 @@ const Profile = () => {
 	};
 
 	const handleSubmit = async (event) => {
+		//hanmdling the form submission
 		event.preventDefault();
 		// console.log(event);
 		const formData = new FormData(event.target); // Creates a new FormData object from the form
-		console.log("formdata", formData);
+		// console.log("formdata", formData);
 		const formDataObj = Object.fromEntries(formData.entries()); // Converts the FormData object to a plain object
-
-		console.log(formDataObj);
+		// console.log(formDataObj);
 		saveFormDataToDatabase(formDataObj);
 	};
 
 	async function saveFormDataToDatabase(formDataObj) {
+		//storing the data to the cloud
 		const { name, email, phone, dob, gender, state, maritalStatus } = formData;
 
-		setUserData({ name, email, phone, dob, gender, state, maritalStatus });
+		setUserData({ name, email, phone, dob, gender, state, maritalStatus }); //also storing the formdata to user data state
 		// console.log(userData);
-
 		// console.log("docId before: ", docId);
+
+		//if the docId exists => update the doc with that id. Else create a new Doc under users/name/data
 		if (docId) {
 			const documentRef = doc(db, `users/${user.displayName}/data/${docId}`);
 			const documentSnapshot = await getDoc(documentRef);
@@ -161,10 +149,11 @@ const Profile = () => {
 				});
 		}
 		setGenModal(false);
-		console.log("docId after: ", docId);
+		// console.log("docId after: ", docId);
 	}
 
 	const handleSignOut = async () => {
+		//handling the signout functionality
 		try {
 			await logOut();
 			navigate("/");
@@ -312,6 +301,7 @@ const Profile = () => {
 				Logout
 			</button>
 
+			{/* creating a modal to take data  */}
 			<Modal
 				isOpen={genModal}
 				onRequestClose={() => setGenModal(false)}
