@@ -1,3 +1,5 @@
+This GitHub repository showcases my attempt at a sample project assigned during an internship interview. The task was to replicate a website within a given time frame, and although I didn't complete it entirely, I'm sharing the progress I made.
+
 Live link: https://skillboard-assessment1.onrender.com
 
 # Getting Started with Create React App
